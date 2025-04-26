@@ -14,7 +14,6 @@ import NQueensPage from './pages/NQueensPage'
 import AppContextProvider from './context/AppContext'
 import BubbleSortPage from './pages/BubbleSortPage'
 import BinarySearchPage from './pages/BinarySearchPage'
-import DijkstraPage from './pages/DijkstraPage'
 
 function App() {
   return (

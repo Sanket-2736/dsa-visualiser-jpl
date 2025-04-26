@@ -55,6 +55,66 @@ function DataStructDesc() {
 }`,
       link: '/hash-map',
     },
+    {
+      title: 'Bubble Sort',
+      description:
+        'Bubble Sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.',
+      adt: `Algorithm BubbleSort {
+  for i = 0 to n - 1
+    for j = 0 to n - i - 1
+      if A[j] > A[j + 1]
+        swap A[j] and A[j + 1]
+}`,
+      link: '/bubble-sort',
+    },
+    {
+      title: 'Binary Search',
+      description:
+        'Binary Search is an efficient algorithm for finding an item from a sorted list by repeatedly dividing the search interval in half.',
+      adt: `Algorithm BinarySearch {
+  low = 0, high = n - 1
+  while low <= high
+    mid = (low + high) / 2
+    if A[mid] == target
+      return mid
+    else if A[mid] < target
+      low = mid + 1
+    else
+      high = mid - 1
+  return -1
+}`,
+      link: '/binary-search',
+    },
+    {
+      title: 'Tower of Hanoi',
+      description:
+        'Tower of Hanoi is a classic recursive problem that involves moving a set of disks from one rod to another, following specific rules.',
+      adt: `Algorithm TowerOfHanoi(n, source, target, auxiliary) {
+  if n == 1
+    move disk from source to target
+    return
+  TowerOfHanoi(n-1, source, auxiliary, target)
+  move disk from source to target
+  TowerOfHanoi(n-1, auxiliary, target, source)
+}`,
+      link: '/tower-of-hanoi',
+    },
+    {
+      title: 'N-Queens Problem',
+      description:
+        'The N-Queens problem is a classic backtracking problem that involves placing N queens on an N×N chessboard such that no two queens threaten each other.',
+      adt: `Algorithm SolveNQueens(board, row, N) {
+  if row == N
+    print solution
+    return
+  for col = 0 to N - 1
+    if isSafe(board, row, col)
+      placeQueen(board, row, col)
+      SolveNQueens(board, row + 1, N)
+      removeQueen(board, row, col)
+}`,
+      link: '/n-queens',
+    },
   ];
 
   return (
@@ -72,16 +132,15 @@ function DataStructDesc() {
             <h2 className="text-2xl font-bold text-cyan-300 mb-4">{ds.title}</h2>
             <p className="text-gray-300 mb-4">{ds.description}</p>
             <div className="mt-4 bg-gray-900/50 backdrop-blur-sm rounded-xl overflow-hidden border border-blue-700/50 shadow-xl">
-  <div className="p-4 bg-gray-800/50 flex gap-2">
-    <div className="w-3 h-3 rounded-full bg-red-500"></div>
-    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-    <div className="w-3 h-3 rounded-full bg-green-500"></div>
-  </div>
-  <div className="p-6 font-mono text-blue-200 whitespace-pre-wrap text-sm">
-    {ds.adt}
-  </div>
-</div>
-
+              <div className="p-4 bg-gray-800/50 flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              </div>
+              <div className="p-6 font-mono text-blue-200 whitespace-pre-wrap text-sm">
+                {ds.adt}
+              </div>
+            </div>
           </div>
         ))}
       </div>
